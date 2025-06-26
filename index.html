@@ -64,4 +64,72 @@
       padding: 1em;
     }
     .trailers h2 {
-      font-size:
+      font-size: 1.3em;
+      margin-bottom: 0.5em;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+    footer {
+      background: #ff0055;
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>UG Translated Movies 🔥</h1>
+    <div class="menu">
+      <div class="menu-button" onclick="toggleDropdown()">⋮</div>
+      <div class="dropdown" id="dropdown">
+        <a href="mailto:fadmugerwa@gmail.com">📧 Email: fadmugerwa@gmail.com</a>
+        <a href="tel:+256759989717">📱 WhatsApp: 0759989717</a>
+      </div>
+    </div>
+  </header>
+
+  <div id="movie-section">
+    <p style="padding:1em; color:#ccc;">Loading movies...</p>
+  </div>
+
+  <div class="trailers">
+    <h2>🔥 Latest Trailers</h2>
+    <iframe src="https://www.youtube.com/embed/DyDfgMOUjCI" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/9ix7TUGVYIo" allowfullscreen></iframe>
+  </div>
+
+  <footer>
+    WhatsApp: 0759989717 | Email: fadmugerwa@gmail.com
+  </footer>
+
+  <script>
+    // Menu dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown");
+      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+    }
+
+    // Fetch movies from external site
+    fetch('https://fresh-teacher.github.io/featured.html')
+      .then(res => res.text())
+      .then(data => {
+        const container = document.getElementById('movie-section');
+        const clean = data.replace(/Translated by.*?<br>/gi, ''); // remove translator credits
+        container.innerHTML = clean;
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('movie-section').innerHTML = '<p style="color:red; padding:1em;">❌ Failed to load movie list.</p>';
+      });
+  </script>
+
+</body>
+</html>
