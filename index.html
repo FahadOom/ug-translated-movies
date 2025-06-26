@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,129 +6,101 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #000;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
     }
     header {
-      background: #111;
-      padding: 1em;
+      background-color: #000;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 0 10px #ff0055;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5em;
     }
     .menu {
       position: relative;
+      display: inline-block;
     }
-    .menu-button {
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-    .dropdown {
+    .menu-content {
+      display: none;
       position: absolute;
       right: 0;
-      top: 2.5em;
-      background: #222;
+      background-color: #222;
       border: 1px solid #333;
-      display: none;
-      flex-direction: column;
-      padding: 1em;
-      z-index: 100;
+      padding: 10px;
     }
-    .dropdown a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0.5em 0;
+    .menu:hover .menu-content {
+      display: block;
     }
-    .card {
-      background: #1a1a1a;
-      margin: 1em;
-      padding: 1em;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ff0055;
-      text-align: center;
+    .years {
+      display: flex;
+      gap: 10px;
+      padding: 1rem;
+      background: #000;
+      overflow-x: auto;
     }
-    .card img {
+    .years span {
+      cursor: pointer;
+      background: #222;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 1rem;
+    }
+    .movies-grid img {
       width: 100%;
       border-radius: 10px;
-      max-height: 200px;
-      object-fit: cover;
+      cursor: pointer;
     }
     .trailers {
-      padding: 1em;
+      padding: 1rem;
     }
-    .trailers h2 {
-      font-size: 1.3em;
-      margin-bottom: 0.5em;
-    }
-    iframe {
+    .trailers iframe {
       width: 100%;
-      height: 200px;
-      border: none;
-      border-radius: 10px;
-      margin-bottom: 1em;
+      max-width: 560px;
+      height: 315px;
+      margin-bottom: 1rem;
     }
     footer {
-      background: #ff0055;
+      background-color: #000;
+      padding: 1rem;
       text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>UG Translated Movies 🔥</h1>
+    <h2>UG Translated Movies 🔥</h2>
     <div class="menu">
-      <div class="menu-button" onclick="toggleDropdown()">⋮</div>
-      <div class="dropdown" id="dropdown">
-        <a href="mailto:fadmugerwa@gmail.com">📧 Email: fadmugerwa@gmail.com</a>
-        <a href="tel:+256759989717">📱 WhatsApp: 0759989717</a>
+      <span>⋮</span>
+      <div class="menu-content">
+        <div><a href="#contact">Contact Us</a></div>
+        <div><a href="#about">About</a></div>
+        <div><a href="#help">Help</a></div>
       </div>
     </div>
-  </header>
-
-  <div id="movie-section">
-    <p style="padding:1em; color:#ccc;">Loading movies...</p>
-  </div>
-
-  <div class="trailers">
-    <h2>🔥 Latest Trailers</h2>
-    <iframe src="https://www.youtube.com/embed/DyDfgMOUjCI" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/9ix7TUGVYIo" allowfullscreen></iframe>
-  </div>
-
-  <footer>
-    WhatsApp: 0759989717 | Email: fadmugerwa@gmail.com
+  </header>  <div class="years">
+    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2020</span>
+    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2021</span>
+    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2022</span>
+    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2023</span>
+    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2024</span>
+  </div>  <h3 style="padding: 0 1rem;">🎬 Latest Movies</h3>
+  <div class="movies-grid">
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Avengers_Endgame_poster.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Avengers Endgame">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Dark Knight">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Incredibles_2_poster.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Incredibles 2">
+  </div>  <div class="trailers">
+    <h3 style="padding-left: 1rem;">📽️ Trailers</h3>
+    <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/8ugaeA-nMTc" frameborder="0" allowfullscreen></iframe>
+  </div>  <footer id="contact">
+    Contact: ugmovies@gmail.com | WhatsApp: 0759989717
   </footer>
-
-  <script>
-    // Menu dropdown toggle
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdown");
-      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
-    }
-
-    // Fetch movies from external site
-    fetch('https://fresh-teacher.github.io/featured.html')
-      .then(res => res.text())
-      .then(data => {
-        const container = document.getElementById('movie-section');
-        const clean = data.replace(/Translated by.*?<br>/gi, ''); // remove translator credits
-        container.innerHTML = clean;
-      })
-      .catch(err => {
-        console.error(err);
-        document.getElementById('movie-section').innerHTML = '<p style="color:red; padding:1em;">❌ Failed to load movie list.</p>';
-      });
-  </script>
-
 </body>
 </html>
