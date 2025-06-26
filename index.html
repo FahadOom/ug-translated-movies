@@ -1,106 +1,230 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UG Translated Movies 🔥</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UG Translated Movies</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" />
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
       background-color: #111;
       color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
     header {
-      background-color: #000;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #ff007f;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+    header h1 {
+      font-size: 32px;
+      color: white;
     }
     .menu {
-      position: relative;
-      display: inline-block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
-    .menu-content {
+    .menu button {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+    #dropdown-menu {
       display: none;
       position: absolute;
-      right: 0;
+      right: 20px;
+      top: 50px;
       background-color: #222;
-      border: 1px solid #333;
-      padding: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 999;
     }
-    .menu:hover .menu-content {
+    #dropdown-menu.show {
       display: block;
     }
-    .years {
-      display: flex;
-      gap: 10px;
-      padding: 1rem;
-      background: #000;
-      overflow-x: auto;
+    #dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: white;
     }
-    .years span {
-      cursor: pointer;
+    #dropdown-menu a:hover {
+      background-color: #333;
+    }
+    .sidebar {
+      width: 100px;
       background: #222;
-      padding: 8px 12px;
+      height: 100vh;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      overflow-y: auto;
+    }
+    .year-item {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .year-item a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      background-color: #333;
       border-radius: 5px;
     }
-    .movies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 20px;
-      padding: 1rem;
+    .year-item a:hover {
+      background-color: #ff007f;
     }
-    .movies-grid img {
-      width: 100%;
+    .main-content {
+      margin-left: 120px;
+      padding: 20px;
+    }
+    .movie-card {
+      display: inline-block;
+      width: 200px;
+      margin: 10px;
+      background-color: #222;
       border-radius: 10px;
-      cursor: pointer;
+      overflow: hidden;
+      text-align: center;
     }
-    .trailers {
-      padding: 1rem;
-    }
-    .trailers iframe {
+    .movie-card img {
       width: 100%;
+      height: auto;
+    }
+    .movie-card p {
+      padding: 10px;
+      font-weight: bold;
+    }
+    .trailer-box {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .trailer-box iframe {
+      width: 90%;
       max-width: 560px;
       height: 315px;
-      margin-bottom: 1rem;
+      border-radius: 10px;
     }
     footer {
-      background-color: #000;
-      padding: 1rem;
+      background: #000;
+      padding: 15px;
       text-align: center;
-      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <h2>UG Translated Movies 🔥</h2>
+    <h1>🔥 UG Translated Movies 🔥</h1>
     <div class="menu">
-      <span>⋮</span>
-      <div class="menu-content">
-        <div><a href="#contact">Contact Us</a></div>
-        <div><a href="#about">About</a></div>
-        <div><a href="#help">Help</a></div>
+      <button id="menu-button" onclick="toggleMenu()">☰</button>
+      <div id="dropdown-menu">
+        <a href="mailto:ugmovies@gmail.com">Contact Us</a>
+        <a href="tel:0759989717">Help</a>
+        <a href="#about">About Us</a>
       </div>
     </div>
-  </header>  <div class="years">
-    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2020</span>
-    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2021</span>
-    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2022</span>
-    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2023</span>
-    <span onclick="window.location.href='https://fresh-teacher.github.io/featured.html'">2024</span>
-  </div>  <h3 style="padding: 0 1rem;">🎬 Latest Movies</h3>
-  <div class="movies-grid">
-    <img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Avengers_Endgame_poster.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Avengers Endgame">
-    <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Dark Knight">
-    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Incredibles_2_poster.jpg" onclick="window.location.href='https://fresh-teacher.github.io/featured.html'" alt="Incredibles 2">
-  </div>  <div class="trailers">
-    <h3 style="padding-left: 1rem;">📽️ Trailers</h3>
-    <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/8ugaeA-nMTc" frameborder="0" allowfullscreen></iframe>
-  </div>  <footer id="contact">
-    Contact: ugmovies@gmail.com | WhatsApp: 0759989717
+  </header>
+
+  <div class="sidebar" id="year-container"></div>
+
+  <div class="main-content">
+    <div id="movie-container"></div>
+    <div id="trailer-container"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 UG Translated Movies. All rights reserved.
   </footer>
+
+  <script>
+    const movies = [
+      {
+        title: "Action Hero",
+        image: "https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg",
+        link: "https://fresh-teacher.github.io/featured.html"
+      },
+      {
+        title: "The Dark Knight",
+        image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        link: "https://fresh-teacher.github.io/featured.html"
+      },
+      {
+        title: "City Pursuit",
+        image: "https://image.tmdb.org/t/p/w500/rTh4K5uw9HypmpGslcKd4QfHl93.jpg",
+        link: "https://fresh-teacher.github.io/featured.html"
+      },
+      {
+        title: "Fast & Furious 9",
+        image: "https://image.tmdb.org/t/p/w500/bOFaAXmWWXC3Rbv4u4uM9ZSzRXP.jpg",
+        link: "https://fresh-teacher.github.io/featured.html"
+      }
+    ];
+
+    const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+    const trailers = [
+      {
+        title: "Avengers Infinity War",
+        url: "https://www.youtube.com/embed/6ZfuNTqbHE8"
+      },
+      {
+        title: "Black Panther",
+        url: "https://www.youtube.com/embed/xjDjIWPwcPU"
+      }
+    ];
+
+    const movieContainer = document.getElementById("movie-container");
+    movies.forEach(movie => {
+      const movieCard = document.createElement("div");
+      movieCard.className = "movie-card";
+      movieCard.innerHTML = `
+        <a href="${movie.link}" target="_blank">
+          <img src="${movie.image}" alt="${movie.title}" />
+          <p>${movie.title}</p>
+        </a>
+      `;
+      movieContainer.appendChild(movieCard);
+    });
+
+    const yearContainer = document.getElementById("year-container");
+    years.forEach(year => {
+      const yearItem = document.createElement("div");
+      yearItem.className = "year-item";
+      yearItem.innerHTML = `<a href="https://fresh-teacher.github.io/featured.html" target="_blank">${year}</a>`;
+      yearContainer.appendChild(yearItem);
+    });
+
+    const trailerContainer = document.getElementById("trailer-container");
+    trailers.forEach(trailer => {
+      const trailerBox = document.createElement("div");
+      trailerBox.className = "trailer-box";
+      trailerBox.innerHTML = `
+        <h3>${trailer.title}</h3>
+        <iframe src="${trailer.url}" frameborder="0" allowfullscreen></iframe>
+      `;
+      trailerContainer.appendChild(trailerBox);
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.classList.toggle("show");
+    }
+
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("dropdown-menu");
+      const button = document.getElementById("menu-button");
+      if (!button.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
