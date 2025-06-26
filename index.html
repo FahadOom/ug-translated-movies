@@ -2,157 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UG Translated Movies 🔥</title>
   <style>
     body {
       margin: 0;
-      background-color: #111;
-      color: #fff;
       font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
     }
     header {
-      background-color: #000;
-      padding: 1rem;
+      background: #111;
+      padding: 1em;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 0 10px #ff0055;
     }
     header h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.5em;
     }
-    .menu-btn {
-      font-size: 1.5rem;
-      background: none;
-      color: white;
-      border: none;
+    .menu {
+      position: relative;
     }
-    .menu-content {
-      display: none;
-      background: #222;
+    .menu-button {
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .dropdown {
       position: absolute;
-      top: 60px;
-      right: 10px;
-      border: 1px solid #444;
-      padding: 10px;
-      border-radius: 8px;
+      right: 0;
+      top: 2.5em;
+      background: #222;
+      border: 1px solid #333;
+      display: none;
+      flex-direction: column;
+      padding: 1em;
+      z-index: 100;
     }
-    .menu-content a {
+    .dropdown a {
       color: #fff;
       text-decoration: none;
-      display: block;
-      margin-bottom: 5px;
+      margin: 0.5em 0;
     }
-    .movie-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .movie-card {
-      background: #222;
-      padding: 0.5rem;
+    .card {
+      background: #1a1a1a;
+      margin: 1em;
+      padding: 1em;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ff00ff44;
+      box-shadow: 0 0 10px #ff0055;
       text-align: center;
     }
-    .movie-card img {
+    .card img {
       width: 100%;
-      border-radius: 6px;
-      height: 200px;
+      border-radius: 10px;
+      max-height: 200px;
       object-fit: cover;
     }
-    .movie-card h3 {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
+    .trailers {
+      padding: 1em;
     }
-    iframe {
-      width: 100%;
-      height: 200px;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    footer {
-      background: #ff0077;
-      text-align: center;
-      padding: 0.5rem;
-      font-size: 0.9rem;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>UG Translated Movies 🔥</h1>
-  <button class="menu-btn" onclick="toggleMenu()">⋮</button>
-  <div class="menu-content" id="menu">
-    <a href="mailto:fadmugerwa@gmail.com">📧 fadmugerwa@gmail.com</a>
-    <a href="tel:+256787920928">📞 0787920928</a>
-  </div>
-</header>
-
-<div class="movie-grid" id="movies">
-  <p>Loading movies...</p>
-</div>
-
-<footer>
-  WhatsApp: 0759989717 | Email: fadmugerwa@gmail.com
-</footer>
-
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-// Fetch movies from the other website
-fetch("https://fresh-teacher.github.io/featured.html")
-  .then(res => res.text())
-  .then(html => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const cards = doc.querySelectorAll(".movie-card");
-    const container = document.getElementById("movies");
-    container.innerHTML = "";
-    
-    cards.forEach(card => {
-      const img = card.querySelector("img");
-      const title = card.querySelector("h3");
-      const trailer = card.querySelector("iframe");
-
-      const cardDiv = document.createElement("div");
-      cardDiv.className = "movie-card";
-
-      if (img?.src && img.src.includes("imgur") && !img.src.includes("removed")) {
-        const image = document.createElement("img");
-        image.src = img.src;
-        cardDiv.appendChild(image);
-      }
-
-      if (title) {
-        const h3 = document.createElement("h3");
-        h3.textContent = title.textContent;
-        cardDiv.appendChild(h3);
-      }
-
-      if (trailer && trailer.src.includes("youtube.com")) {
-        const iframe = document.createElement("iframe");
-        iframe.src = trailer.src;
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        cardDiv.appendChild(iframe);
-      }
-
-      container.appendChild(cardDiv);
-    });
-  })
-  .catch(err => {
-    document.getElementById("movies").innerHTML = "<p style='color:red;'>Failed to load movies.</p>";
-    console.error(err);
-  });
-</script>
-
-</body>
-</html>
+    .trailers h2 {
+      font-size:
